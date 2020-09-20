@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ContactsApp.Model;
+using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -21,6 +23,9 @@ namespace ContactsApp.ViewModels
         string website = "http://motz.codes";
         bool bestFriend;
         bool isBusy = false;
+
+        ObservableCollection<Contact> contacts = new ObservableCollection<Contact>();
+        public ObservableCollection<Contact> Contacts { get { return contacts; } }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -117,7 +122,13 @@ namespace ContactsApp.ViewModels
             IsBusy = false;
 
             await Application.Current.MainPage.DisplayAlert("Save", "Contact has been saved", "OK");
+
+            ContactList();
         }
 
+        public void ContactList()
+        {
+            contacts.Add(new Contact { DisplayName = $"{Name}" });
+        }
     }
 }

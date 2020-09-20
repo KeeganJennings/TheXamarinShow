@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    class Contact
+    public class Contact
     {
+        public string DisplayName { get; set; }
     }
 }

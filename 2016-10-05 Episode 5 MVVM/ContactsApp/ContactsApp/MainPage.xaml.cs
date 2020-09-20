@@ -16,6 +16,5 @@ namespace ContactsApp
             BindingContext = new AddContactViewModel();
             
         }
-        
     }
 }

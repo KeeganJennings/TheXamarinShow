@@ -21,6 +21,15 @@
     <Button Text="Save Contact" Command="{Binding SaveContactCommand}"/>
     
     <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+
+    <ListView x:Name="Contact View"
+        ItemsSource="{Binding Contacts}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding DisplayName}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
     
   </StackLayout>
 
